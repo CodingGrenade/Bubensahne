@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://bfwik7j6xmwrq"]
+
+[ext_resource type="Script" uid="uid://w2am7ikunx5" path="res://upgrade_screen.gd" id="1_bfcw2"]
+[ext_resource type="FontFile" uid="uid://bhm6wx7n8suv3" path="res://fonts/Minecraft.ttf" id="1_sbak5"]
+[ext_resource type="Texture2D" uid="uid://ipp5j7wnb57l" path="res://background image/RPG.png" id="2_bfcw2"]
+[ext_resource type="Texture2D" uid="uid://defg16l4pu26t" path="res://background image/Sniper.png" id="4_3v5w7"]
+[ext_resource type="Texture2D" uid="uid://rnqmsgcdem4i" path="res://background image/speed.png" id="5_l7xai"]
+[ext_resource type="Texture2D" uid="uid://7udn2e7l3lrq" path="res://background image/range.png" id="6_3v5w7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
+bg_color = Color(0.30980393, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sky72"]
+bg_color = Color(0.2509804, 0.28627452, 0.29411766, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ytqx"]
+bg_color = Color(0.09411765, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfcw2"]
+bg_color = Color(0.30980393, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sbak5"]
+load_path = "res://.godot/imported/damage_upgrade.png-08ff4f4b3f6c075518197aad927db43d.ctex"
+
+[node name="upgrade_screen" type="Control" unique_id=1697521270]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfcw2")
+
+[node name="Panel" type="Panel" parent="." unique_id=737459794]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1786053297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -74.0
+offset_right = 1776.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.49, 0.49)
+theme_override_constants/separation = 100
+
+[node name="LeftUpgrade" type="Button" parent="HBoxContainer" unique_id=794040608]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_sbak5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+icon = ExtResource("2_bfcw2")
+
+[node name="CenterUpgrade" type="Button" parent="HBoxContainer" unique_id=1219110367]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_sbak5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ytqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bfcw2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+icon = SubResource("CompressedTexture2D_sbak5")
+
+[node name="RightUpgrade" type="Button" parent="HBoxContainer" unique_id=1512891808]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_sbak5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ytqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+text = "
+"
+icon = ExtResource("4_3v5w7")
+
+[node name="RightUpgrade2" type="Button" parent="HBoxContainer" unique_id=1105584669]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_sbak5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+icon = ExtResource("5_l7xai")
+
+[node name="RightUpgrade3" type="Button" parent="HBoxContainer" unique_id=251932361]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_sbak5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+icon = ExtResource("6_3v5w7")
+
+[node name="Label" type="Label" parent="." unique_id=1953258546]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 64.0
+offset_right = 227.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_sbak5")
+theme_override_font_sizes/font_size = 100
+text = "Level UP!"
+
+[connection signal="pressed" from="HBoxContainer/LeftUpgrade" to="." method="_on_left_upgrade_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterUpgrade" to="." method="_on_center_upgrade_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightUpgrade" to="." method="_on_right_upgrade_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightUpgrade2" to="." method="_on_right_upgrade_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightUpgrade3" to="." method="_on_right_upgrade_3_pressed"]

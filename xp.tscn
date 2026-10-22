@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://1rxix5ju1xid"]
+
+[ext_resource type="Script" uid="uid://bo10ejsespn15" path="res://xp.gd" id="1_1jxo8"]
+[ext_resource type="Texture2D" uid="uid://b7ib0t7y7ba5e" path="res://background image/Bottle_o'_Enchanting_JE2_BE2.webp" id="2_gxxb8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qy43f"]
+radius = 96.0
+height = 256.0
+
+[node name="Xp" type="Area2D" unique_id=412090301]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_1jxo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=984728631]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_qy43f")
+
+[node name="ExpBottle" type="Sprite2D" parent="." unique_id=773033811]
+z_index = -1
+position = Vector2(-5, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gxxb8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

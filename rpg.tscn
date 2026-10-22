@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://rxtqnhp0yoli"]
+
+[ext_resource type="Script" uid="uid://dxfgo50ubsf5g" path="res://rpg.gd" id="1_m6cri"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_332r8"]
+radius = 32.0
+
+[sub_resource type="Gradient" id="Gradient_m6cri"]
+offsets = PackedFloat32Array(0, 0.1826923, 0.34134614, 0.5817308, 1)
+colors = PackedColorArray(0.57925427, 0, 0, 1, 1, 0, 0, 1, 1, 0.45882353, 0, 1, 1, 0.78431374, 0.21960784, 1, 1, 1, 0.89411765, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7s8yp"]
+gradient = SubResource("Gradient_m6cri")
+
+[sub_resource type="Curve" id="Curve_n0ctt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), -1.0133425, -1.0133425, 0, 0, Vector2(0.8974359, 0), 0.0, 0.0, 0, 0, Vector2(0.90000004, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_d68fp"]
+curve = SubResource("Curve_n0ctt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_332r8"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 16.67
+initial_velocity_max = 160.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_d68fp")
+color_ramp = SubResource("GradientTexture1D_7s8yp")
+
+[node name="rpg" type="RigidBody2D" unique_id=726431497]
+top_level = true
+collision_layer = 5
+collision_mask = 0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_m6cri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929207695]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_332r8")
+
+[node name="Body" type="Polygon2D" parent="." unique_id=1832964175]
+polygon = PackedVector2Array(0, 16, 16, 8, 24, 0, 32, -8, 24, -16, 16, -24, 0, -32)
+
+[node name="Timer" type="Timer" parent="." unique_id=825435868]
+wait_time = 5.0
+autostart = true
+
+[node name="Trail" type="Node2D" parent="." unique_id=2060224648]
+
+[node name="Polygon2D" type="Polygon2D" parent="Trail" unique_id=1108931144]
+color = Color(1, 0.09803922, 0.12941177, 1)
+polygon = PackedVector2Array(0, -32, 0, 16, -32, -8)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=435263724]
+emitting = false
+amount = 1000
+one_shot = true
+explosiveness = 0.7
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_332r8")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b7r5jnr86v2lb"]
+
+[ext_resource type="Resource" uid="uid://ban6a1lmuuoxf" path="res://rifle.tres" id="2_o00eb"]
+[ext_resource type="Resource" uid="uid://dw2hrqywpn0ww" path="res://sniper.tres" id="3_jug0c"]
+[ext_resource type="AudioStream" uid="uid://bntmm0j7devli" path="res://AudioAssets/shot.ogg" id="3_m045n"]
+[ext_resource type="Resource" uid="uid://h4fmsoumtnpw" path="res://rpg.tres" id="4_b4882"]
+[ext_resource type="Resource" uid="uid://c4fcqntuhkfg6" path="res://shotgun.tres" id="5_jug0c"]
+[ext_resource type="Texture2D" uid="uid://bpp7f1n3ixc4w" path="res://background image/facing_right.png" id="6_jug0c"]
+[ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://character_body_2d.gd" id="6_o00eb"]
+[ext_resource type="Shader" uid="uid://cow6uocnyyt26" path="res://spieler.gdshader" id="7_b4882"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4cern"]
+shader = ExtResource("7_b4882")
+shader_parameter/movement_strength = 0.010000000475
+shader_parameter/movement_speed = 1.0550000501125
+
+[node name="Spieler" type="CharacterBody2D" unique_id=2021619859 groups=["player"]]
+collision_layer = 6
+collision_mask = 0
+script = ExtResource("6_o00eb")
+rifle = ExtResource("2_o00eb")
+sniper = ExtResource("3_jug0c")
+rpg = ExtResource("4_b4882")
+shotgun = ExtResource("5_jug0c")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1472523570]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(3, -62, 25, -53, 27, -40, 19, -38, 41, -21, 45, 15, 33, 26, 42, 39, 35, 54, 15, 52, 12, 41, -18, 39, -22, 51, -34, 56, -44, 48, -45, 34, -37, 29, -48, 10, -49, -7, -47, -18, -43, -23, -23, -38, -28, -44, -29, -51, -23, -56, -13, -58, -9, -56)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=910515417]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=409190978]
+stream = ExtResource("3_m045n")
+volume_db = -20.0
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=151603713]
+material = SubResource("ShaderMaterial_4cern")
+scale = Vector2(0.35, 0.349)
+texture = ExtResource("6_jug0c")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=402387576]
+position = Vector2(144, 0)
+
+[node name="RifleCooldown" type="Timer" parent="." unique_id=957528727]
+wait_time = 0.5
+one_shot = true
+
+[node name="SniperCooldown" type="Timer" parent="." unique_id=1451543156]
+wait_time = 2.0
+one_shot = true
+
+[node name="RpgCooldown" type="Timer" parent="." unique_id=931446152]
+wait_time = 8.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=467079892]
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1112150714]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(3, -62, 25, -53, 27, -40, 19, -38, 41, -21, 45, 15, 33, 26, 42, 39, 35, 54, 15, 52, 12, 41, -18, 39, -22, 51, -34, 56, -44, 48, -45, 34, -37, 29, -48, 10, -49, -7, -47, -18, -43, -23, -23, -38, -28, -44, -29, -51, -23, -56, -13, -58, -9, -56)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://2oqfqxx5b61g"]
+
+[ext_resource type="Script" uid="uid://digwgrgc154m1" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="AudioStream" uid="uid://dx3uvvijqxsma" path="res://AudioAssets/pop.ogg" id="2_4gyqm"]
+[ext_resource type="PackedScene" uid="uid://b5atwp2ndkwjs" path="res://kugel.tscn" id="2_epg4t"]
+[ext_resource type="FontFile" uid="uid://dh5als0weu2ya" path="res://fonts/comicbd.ttf" id="3_iifgy"]
+[ext_resource type="Script" uid="uid://bq3fxocjw6iji" path="res://damage_display.gd" id="3_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://u6sm3fdyx87x" path="res://background image/Boss.png" id="6_3yqyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(64, 64)
+
+[node name="Enemy" type="Area2D" unique_id=510179852]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_7k104")
+bullet_scene = ExtResource("2_epg4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2133242512]
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1962833570]
+position = Vector2(-8, 24)
+polygon = PackedVector2Array(8, -56, 40, -56, 40, 8, -24, 8, -24, -56)
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=643398291]
+modulate = Color(1, 0, 0, 1)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = -5.0
+show_percentage = false
+
+[node name="DamageDisplay" type="Label" parent="." unique_id=1204762996]
+top_level = true
+offset_left = -16.0
+offset_top = -80.0
+offset_right = 24.0
+offset_bottom = -57.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_iifgy")
+text = "Text einfügen"
+script = ExtResource("3_qi2p4")
+
+[node name="ShotCooldown" type="Timer" parent="." unique_id=674649248]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1827349885]
+stream = ExtResource("2_4gyqm")
+volume_db = -20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2045406174]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("6_3yqyl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ShotCooldown" to="." method="_on_shot_cooldown_timeout"]

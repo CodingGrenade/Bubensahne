@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://h4fmsoumtnpw"]
+
+[ext_resource type="PackedScene" uid="uid://rxtqnhp0yoli" path="res://rpg.tscn" id="1_5wht0"]
+[ext_resource type="Script" uid="uid://ce387bflcrs5i" path="res://weapon_data.gd" id="1_tsd55"]
+
+[resource]
+script = ExtResource("1_tsd55")
+weapon_type = 2
+projectile_scene = ExtResource("1_5wht0")
+damage = 200.0
+cooldown = 8.0
+impulse = 350.0
+color = Color(0.37254903, 0.61960787, 0.627451, 1)
+range_factor = 0.8
+metadata/_custom_type_script = "uid://ce387bflcrs5i"

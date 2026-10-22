@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bq3huk364skd3"]
+
+[ext_resource type="FontFile" uid="uid://bhm6wx7n8suv3" path="res://fonts/Minecraft.ttf" id="1_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://ipp5j7wnb57l" path="res://background image/RPG.png" id="2_kbped"]
+[ext_resource type="Texture2D" uid="uid://bbrscn7me3ojp" path="res://background image/damage_upgrade.png" id="3_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://defg16l4pu26t" path="res://background image/Sniper.png" id="4_iy58a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
+bg_color = Color(0.30980393, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sky72"]
+bg_color = Color(0.25233224, 0.2843987, 0.29356232, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ytqx"]
+bg_color = Color(0.09411765, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[node name="upgrade_screen" type="Control" unique_id=1697521270]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=737459794]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1786053297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.0
+offset_top = -74.0
+offset_right = 896.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.735, 0.735)
+theme_override_constants/separation = 100
+
+[node name="LeftUpgrade" type="Button" parent="HBoxContainer" unique_id=794040608]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ee4bf")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+icon = ExtResource("2_kbped")
+
+[node name="CenterUpgrade" type="Button" parent="HBoxContainer" unique_id=1219110367]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ee4bf")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ytqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+icon = ExtResource("3_fj5cn")
+
+[node name="RightUpgrade" type="Button" parent="HBoxContainer" unique_id=1512891808]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ee4bf")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ytqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6a6wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sky72")
+text = "
+"
+icon = ExtResource("4_iy58a")
+
+[node name="Label" type="Label" parent="." unique_id=1953258546]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 64.0
+offset_right = 227.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ee4bf")
+theme_override_font_sizes/font_size = 100
+text = "Level UP!"

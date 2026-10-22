@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://ban6a1lmuuoxf"]
+
+[ext_resource type="PackedScene" uid="uid://b5atwp2ndkwjs" path="res://kugel.tscn" id="1_rm8v7"]
+[ext_resource type="Script" uid="uid://ce387bflcrs5i" path="res://weapon_data.gd" id="2_faego"]
+
+[resource]
+script = ExtResource("2_faego")
+projectile_scene = ExtResource("1_rm8v7")
+color = Color(1, 0.09803922, 0.12941177, 1)
+price = 30.0
+metadata/_custom_type_script = "uid://ce387bflcrs5i"

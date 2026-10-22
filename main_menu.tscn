@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://crev2inf1u6xe"]
+
+[ext_resource type="FontFile" uid="uid://bhm6wx7n8suv3" path="res://fonts/Minecraft.ttf" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://dbvg5efnh1e4o" path="res://background image/pomegranade.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://dn12u7ocbrg15" path="res://main_menu.gd" id="1_fu7sn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qy43f"]
+texture = ExtResource("1_7vrkn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy43f"]
+bg_color = Color(0.09411765, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.30980393, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.25233224, 0.2843987, 0.29356232, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[node name="Main Menu" type="Control" unique_id=1740455138]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="Panel" type="Panel" parent="." unique_id=258872297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qy43f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=896059294]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -148.0
+offset_right = 192.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=130145035]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qy43f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+text = "START GAME"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

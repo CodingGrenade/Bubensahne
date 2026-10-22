@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://bffs0yqr2jdrx"]
+
+[ext_resource type="Script" uid="uid://c7ky5kl087emj" path="res://level.gd" id="1_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://b7r5jnr86v2lb" path="res://spieler.tscn" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://1rxix5ju1xid" path="res://xp.tscn" id="2_8b0r0"]
+[ext_resource type="PackedScene" uid="uid://2oqfqxx5b61g" path="res://enemy.tscn" id="2_oi3di"]
+[ext_resource type="PackedScene" uid="uid://bfwik7j6xmwrq" path="res://upgrade_screen.tscn" id="3_1ainy"]
+[ext_resource type="FontFile" uid="uid://bhm6wx7n8suv3" path="res://fonts/Minecraft.ttf" id="3_f2txt"]
+[ext_resource type="Texture2D" uid="uid://btw8m62w5pekp" path="res://Cross_red_circle.svg" id="4_0b4ue"]
+[ext_resource type="Script" uid="uid://8g7gtfi7d6v1" path="res://cooldown_bar.gd" id="7_2orkt"]
+[ext_resource type="Texture2D" uid="uid://bwxglnxphe58h" path="res://background image/background.png" id="7_n6hdu"]
+[ext_resource type="Texture2D" uid="uid://dbtbmaqr3ukja" path="res://background image/heart_full.png" id="8_2orkt"]
+[ext_resource type="AudioStream" uid="uid://u25kekn608sn" path="res://AudioAssets/minecraft_hit_soundmp3converter.mp3" id="12_aicyk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ainy"]
+normal = Vector2(-1, 0)
+distance = -2888.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n6hdu"]
+normal = Vector2(1, 0)
+distance = -3152.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_km5ld"]
+normal = Vector2(0, 1)
+distance = -1848.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f2txt"]
+distance = -1654.0
+
+[node name="Level" type="Node2D" unique_id=980749664]
+script = ExtResource("1_0b4ue")
+xp_scene = ExtResource("2_8b0r0")
+enemy_scene = ExtResource("2_oi3di")
+upgrade_screen_scene = ExtResource("3_1ainy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=890541420]
+
+[node name="Score2" type="Label" parent="CanvasLayer" unique_id=1326974646]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Kills: 0
+"
+
+[node name="Death" type="Label" parent="CanvasLayer" unique_id=606230932]
+modulate = Color(1, 0, 0, 1)
+top_level = true
+offset_left = 16.000004
+offset_top = 72.00001
+offset_right = 95.0
+offset_bottom = 95.00001
+scale = Vector2(6.85, 6.85)
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "YOU DIED"
+
+[node name="Wave" type="Label" parent="CanvasLayer" unique_id=1092361301]
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 99.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Wave: "
+
+[node name="ShotRightProgress" type="ProgressBar" parent="CanvasLayer" unique_id=523742867]
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 352.0
+offset_bottom = 68.0
+show_percentage = false
+script = ExtResource("7_2orkt")
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotRightProgress" unique_id=1999968907]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 155.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Red Bullet Cooldown"
+
+[node name="ShotLeftProgress" type="ProgressBar" parent="CanvasLayer" unique_id=2080199532]
+offset_left = 400.0
+offset_top = 40.0
+offset_right = 552.0
+offset_bottom = 68.0
+show_percentage = false
+script = ExtResource("7_2orkt")
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotLeftProgress" unique_id=796220101]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 155.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Sniper Bullet Cooldown"
+
+[node name="ShotRpgProgress" type="ProgressBar" parent="CanvasLayer" unique_id=1847804914]
+offset_left = 600.0
+offset_top = 40.0
+offset_right = 752.0
+offset_bottom = 68.0
+show_percentage = false
+script = ExtResource("7_2orkt")
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotRpgProgress" unique_id=1654539775]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 155.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "RPG Bullet Cooldown"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=442577818]
+offset_left = 900.0
+offset_top = 30.0
+offset_right = 1226.0
+offset_bottom = 136.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Herz1" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1275480986]
+layout_mode = 2
+texture = ExtResource("8_2orkt")
+expand_mode = 3
+
+[node name="Herz2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1306980685]
+layout_mode = 2
+texture = ExtResource("8_2orkt")
+expand_mode = 3
+
+[node name="Herz3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1597227684]
+layout_mode = 2
+texture = ExtResource("8_2orkt")
+expand_mode = 3
+
+[node name="XpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1464809062]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Spieler" parent="." unique_id=2139174786 instance=ExtResource("1_vonw3")]
+collision_layer = 14
+collision_mask = 8
+
+[node name="Timer" type="Timer" parent="." unique_id=1776156511]
+wait_time = 0.4
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=363068851]
+visible = false
+texture = ExtResource("4_0b4ue")
+
+[node name="BorderRight" type="StaticBody2D" parent="." unique_id=1721332179]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight" unique_id=1961396120]
+position = Vector2(-88, 0)
+shape = SubResource("WorldBoundaryShape2D_1ainy")
+
+[node name="BorderLeft" type="StaticBody2D" parent="." unique_id=1043204710]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft" unique_id=1332235755]
+position = Vector2(352, 16)
+shape = SubResource("WorldBoundaryShape2D_n6hdu")
+
+[node name="BorderUp" type="StaticBody2D" parent="." unique_id=619354207]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderUp" unique_id=1974168264]
+position = Vector2(0, 160)
+shape = SubResource("WorldBoundaryShape2D_km5ld")
+
+[node name="BorderDown" type="StaticBody2D" parent="." unique_id=2054242410]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderDown" unique_id=183165704]
+position = Vector2(0, 34)
+shape = SubResource("WorldBoundaryShape2D_f2txt")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=448601515]
+z_index = -10
+scale = Vector2(4, 3)
+texture = ExtResource("7_n6hdu")
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=913499059]
+z_index = -20
+offset_left = -934.0
+offset_top = -1029.3334
+offset_right = 1124.0
+offset_bottom = 1091.6088
+color = Color(0, 0.0627451, 0, 1)
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=680534555]
+stream = ExtResource("12_aicyk")
+volume_db = -20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

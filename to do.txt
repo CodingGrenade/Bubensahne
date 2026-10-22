@@ -1,0 +1,16 @@
+to do:
+----- projektil von enemy type 3
+----- map boundaries
+----level up decision making (mehr hinzufügen, basics sind da)
+-----attribute scaling (bissl schöner machen)
+------ wenn weit links nach rechts tp
+-----player health
+------ background image
+-----bug fix damaged move speed
+------ cooldown reduction upgrades
+-----stat scaling
+-----gewehr endlich mit player ersetzen
+----add weapon textures
+----- add shotgun
+hp on level up
+damage tilt

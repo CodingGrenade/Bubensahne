@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://bffs0yqr2jdrx"]
+
+[ext_resource type="Script" uid="uid://c7ky5kl087emj" path="res://level.gd" id="1_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://b7r5jnr86v2lb" path="res://spieler.tscn" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://1rxix5ju1xid" path="res://xp.tscn" id="2_8b0r0"]
+[ext_resource type="PackedScene" uid="uid://2oqfqxx5b61g" path="res://enemy.tscn" id="2_oi3di"]
+[ext_resource type="FontFile" uid="uid://bhm6wx7n8suv3" path="res://fonts/Minecraft.ttf" id="3_f2txt"]
+[ext_resource type="Texture2D" uid="uid://btw8m62w5pekp" path="res://Cross_red_circle.svg" id="4_0b4ue"]
+[ext_resource type="Texture2D" uid="uid://ipp5j7wnb57l" path="res://background image/RPG.png" id="5_fedht"]
+[ext_resource type="Texture2D" uid="uid://defg16l4pu26t" path="res://background image/Sniper.png" id="6_4c15r"]
+[ext_resource type="Script" uid="uid://8g7gtfi7d6v1" path="res://cooldown_bar.gd" id="7_2orkt"]
+[ext_resource type="Texture2D" uid="uid://rnqmsgcdem4i" path="res://background image/speed.png" id="7_ait7k"]
+[ext_resource type="Texture2D" uid="uid://bwxglnxphe58h" path="res://background image/background.png" id="7_n6hdu"]
+[ext_resource type="Texture2D" uid="uid://7udn2e7l3lrq" path="res://background image/range.png" id="8_42xju"]
+[ext_resource type="Script" uid="uid://d3p1jnbfgdnfx" path="res://xp_bar.gd" id="8_aicyk"]
+[ext_resource type="AudioStream" uid="uid://b3gthd0772l8h" path="res://AudioAssets/orb.mp3" id="9_8b0r0"]
+[ext_resource type="Script" uid="uid://b6my53e0ky2qe" path="res://wave_time_left.gd" id="10_h6smj"]
+[ext_resource type="AudioStream" uid="uid://u25kekn608sn" path="res://AudioAssets/minecraft_hit_soundmp3converter.mp3" id="12_aicyk"]
+[ext_resource type="AudioStream" uid="uid://fylxgaexdy2a" path="res://AudioAssets/levelup.mp3" id="13_4c15r"]
+
+[sub_resource type="GDScript" id="GDScript_v7sqt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a6wx"]
+bg_color = Color(0.30980393, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sky72"]
+bg_color = Color(0.2509804, 0.28627452, 0.29411766, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ytqx"]
+bg_color = Color(0.09411765, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfcw2"]
+bg_color = Color(0.30980393, 0.10980392, 0.11372549, 0.78039217)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+shadow_color = Color(0.70380783, 0.70380783, 0.70380783, 0.36862746)
+shadow_size = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sbak5"]
+load_path = "res://.godot/imported/damage_upgrade.png-08ff4f4b3f6c075518197aad927db43d.ctex"
+
+[sub_resource type="PackedScene" id="PackedScene_ilwjd"]
+_bundled = {
+"conn_count": 5,
+"conns": PackedInt32Array(1073741833, 1073741832, 101, 100, 2, 0, 0, 1073741835, 1073741834, 103, 102, 2, 0, 0, 1073741837, 1073741836, 105, 104, 2, 0, 0, 1073741839, 1073741838, 107, 106, 2, 0, 0, 1073741841, 1073741840, 109, 108, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("upgrade_screen", "Control", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "Panel", "Panel", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "HBoxContainer", "HBoxContainer", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "scale", "theme_override_constants/separation", "LeftUpgrade", "Button", "layout_mode", "size_flags_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/pressed", "theme_override_styles/hover", "icon", "CenterUpgrade", "Button", "layout_mode", "size_flags_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/normal", "theme_override_styles/pressed", "theme_override_styles/hover", "icon", "RightUpgrade", "Button", "layout_mode", "size_flags_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/normal", "theme_override_styles/pressed", "theme_override_styles/hover", "text", "icon", "RightUpgrade2", "Button", "layout_mode", "size_flags_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/pressed", "theme_override_styles/hover", "icon", "RightUpgrade3", "Button", "layout_mode", "size_flags_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/pressed", "theme_override_styles/hover", "icon", "Label", "Label", "layout_mode", "anchors_preset", "anchor_left", "anchor_right", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "_on_left_upgrade_pressed", "pressed", "_on_center_upgrade_pressed", "pressed", "_on_right_upgrade_pressed", "pressed", "_on_right_upgrade_2_pressed", "pressed", "_on_right_upgrade_3_pressed", "pressed"),
+"node_count": 9,
+"node_ids": PackedInt32Array(1697521270, 737459794, 1786053297, 794040608, 1219110367, 1512891808, 1105584669, 251932361, 1953258546),
+"node_paths": [NodePath("."), NodePath("."), NodePath("./HBoxContainer"), NodePath("./HBoxContainer"), NodePath("./HBoxContainer"), NodePath("./HBoxContainer"), NodePath("./HBoxContainer"), NodePath("."), NodePath("."), NodePath("HBoxContainer/LeftUpgrade"), NodePath("."), NodePath("HBoxContainer/CenterUpgrade"), NodePath("."), NodePath("HBoxContainer/RightUpgrade"), NodePath("."), NodePath("HBoxContainer/RightUpgrade2"), NodePath("."), NodePath("HBoxContainer/RightUpgrade3")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 0, 1073741824, 0, 10, 9, -1, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 0, 1073741825, 0, 18, 17, -1, 14, 19, 13, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 25, 19, 26, 20, 27, 21, 28, 22, 29, 23, 30, 24, 31, 25, 32, 26, 0, 1073741826, 0, 34, 33, -1, 8, 35, 27, 36, 28, 37, 29, 38, 30, 39, 31, 40, 32, 41, 33, 42, 34, 0, 1073741827, 0, 44, 43, -1, 9, 45, 35, 46, 36, 47, 37, 48, 38, 49, 39, 50, 40, 51, 41, 52, 42, 53, 43, 0, 1073741828, 0, 55, 54, -1, 10, 56, 44, 57, 45, 58, 46, 59, 47, 60, 48, 61, 49, 62, 50, 63, 51, 64, 52, 65, 53, 0, 1073741829, 0, 67, 66, -1, 8, 68, 54, 69, 55, 70, 56, 71, 57, 72, 58, 73, 59, 74, 60, 75, 61, 0, 1073741830, 0, 77, 76, -1, 8, 78, 62, 79, 63, 80, 64, 81, 65, 82, 66, 83, 67, 84, 68, 85, 69, 0, 1073741831, 0, 87, 86, -1, 12, 88, 70, 89, 71, 90, 72, 91, 73, 92, 74, 93, 75, 94, 76, 95, 77, 96, 78, 97, 79, 98, 80, 99, 81, 0),
+"variants": [3, 15, 1.0, 1.0, 2, 2, SubResource("GDScript_v7sqt"), 1, 15, 1.0, 1.0, 2, 2, 1, 8, 0.5, 0.5, 0.5, 0.5, -576.0, -74.0, 1776.0, 340.0, 2, 2, Vector2(0.49, 0.49), 100, 2, 3, Color(1, 1, 1, 1), ExtResource("3_f2txt"), 40, SubResource("StyleBoxFlat_6a6wx"), SubResource("StyleBoxFlat_sky72"), ExtResource("5_fedht"), 2, 3, Color(1, 1, 1, 1), ExtResource("3_f2txt"), 40, SubResource("StyleBoxFlat_0ytqx"), SubResource("StyleBoxFlat_bfcw2"), SubResource("StyleBoxFlat_sky72"), SubResource("CompressedTexture2D_sbak5"), 2, 3, Color(1, 1, 1, 1), ExtResource("3_f2txt"), 40, SubResource("StyleBoxFlat_0ytqx"), SubResource("StyleBoxFlat_6a6wx"), SubResource("StyleBoxFlat_sky72"), "
+", ExtResource("6_4c15r"), 2, 3, Color(1, 1, 1, 1), ExtResource("3_f2txt"), 40, SubResource("StyleBoxFlat_6a6wx"), SubResource("StyleBoxFlat_sky72"), ExtResource("7_ait7k"), 2, 3, Color(1, 1, 1, 1), ExtResource("3_f2txt"), 40, SubResource("StyleBoxFlat_6a6wx"), SubResource("StyleBoxFlat_sky72"), ExtResource("8_42xju"), 1, 5, 0.5, 0.5, -224.0, 64.0, 227.0, 164.0, 2, ExtResource("3_f2txt"), 100, "Level UP!"],
+"version": 3
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy43f"]
+bg_color = Color(0.5529412, 0.61960787, 0.5803922, 0.56078434)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_332r8"]
+bg_color = Color(0.13725491, 0.69803923, 0.4, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ainy"]
+normal = Vector2(-1, 0)
+distance = -2888.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n6hdu"]
+normal = Vector2(1, 0)
+distance = -3152.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_km5ld"]
+normal = Vector2(0, 1)
+distance = -1848.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f2txt"]
+distance = -1654.0
+
+[node name="Level" type="Node2D" unique_id=980749664]
+script = ExtResource("1_0b4ue")
+xp_scene = ExtResource("2_8b0r0")
+enemy_scene = ExtResource("2_oi3di")
+upgrade_screen_scene = SubResource("PackedScene_ilwjd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=890541420]
+
+[node name="Score2" type="Label" parent="CanvasLayer" unique_id=1326974646]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Kills: 0
+"
+
+[node name="Death" type="Label" parent="CanvasLayer" unique_id=606230932]
+modulate = Color(1, 0, 0, 1)
+top_level = true
+offset_left = 16.000004
+offset_top = 72.00001
+offset_right = 95.0
+offset_bottom = 95.00001
+scale = Vector2(6.85, 6.85)
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "YOU DIED"
+
+[node name="Wave" type="Label" parent="CanvasLayer" unique_id=1092361301]
+offset_left = 576.0
+offset_top = 50.0
+offset_right = 627.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Wave: "
+
+[node name="ShotRightProgress" type="ProgressBar" parent="CanvasLayer" unique_id=523742867]
+offset_left = 50.0
+offset_top = 550.0
+offset_right = 74.0
+offset_bottom = 606.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_2orkt")
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotRightProgress" unique_id=1999968907]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 147.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Rifle"
+
+[node name="ShotLeftProgress" type="ProgressBar" parent="CanvasLayer" unique_id=2080199532]
+offset_left = 100.0
+offset_top = 550.0
+offset_right = 124.0
+offset_bottom = 606.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_2orkt")
+weapon = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotLeftProgress" unique_id=796220101]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 147.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Sniper"
+
+[node name="ShotRpgProgress" type="ProgressBar" parent="CanvasLayer" unique_id=1847804914]
+offset_left = 150.0
+offset_top = 550.0
+offset_right = 174.0
+offset_bottom = 606.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_2orkt")
+weapon = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotRpgProgress" unique_id=1654539775]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 160.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "RPG"
+
+[node name="ShotShotgunProgress" type="ProgressBar" parent="CanvasLayer" unique_id=1528296824]
+offset_left = 200.0
+offset_top = 550.0
+offset_right = 224.0
+offset_bottom = 606.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("7_2orkt")
+weapon = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/ShotShotgunProgress" unique_id=2045986765]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 160.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+text = "Shotgun"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=442577818]
+offset_left = 900.0
+offset_top = 30.0
+offset_right = 1226.0
+offset_bottom = 136.0
+scale = Vector2(0.7, 0.7)
+
+[node name="XpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1464809062]
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 184.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/background = SubResource("StyleBoxFlat_qy43f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_332r8")
+script = ExtResource("8_aicyk")
+
+[node name="XpText" type="Label" parent="CanvasLayer/XpBar" unique_id=409952777]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+
+[node name="XpSound" type="AudioStreamPlayer2D" parent="CanvasLayer/XpBar" unique_id=1659508929]
+stream = ExtResource("9_8b0r0")
+volume_db = -20.0
+
+[node name="LevelUpSound" type="AudioStreamPlayer2D" parent="CanvasLayer/XpBar" unique_id=1522663051]
+stream = ExtResource("13_4c15r")
+volume_db = -10.0
+
+[node name="WaveTimeLeft" type="Label" parent="CanvasLayer" unique_id=1982405240]
+offset_left = 550.0
+offset_top = 100.0
+offset_right = 590.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("3_f2txt")
+script = ExtResource("10_h6smj")
+
+[node name="Money" type="Label" parent="CanvasLayer" unique_id=792042032]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=1291855903]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="Spieler" parent="." unique_id=2139174786 instance=ExtResource("1_vonw3")]
+collision_layer = 14
+collision_mask = 8
+
+[node name="EnemySpawnInterval" type="Timer" parent="." unique_id=1776156511]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=363068851]
+visible = false
+texture = ExtResource("4_0b4ue")
+
+[node name="BorderRight" type="StaticBody2D" parent="." unique_id=1721332179]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight" unique_id=1961396120]
+position = Vector2(-88, 0)
+shape = SubResource("WorldBoundaryShape2D_1ainy")
+
+[node name="BorderLeft" type="StaticBody2D" parent="." unique_id=1043204710]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft" unique_id=1332235755]
+position = Vector2(352, 16)
+shape = SubResource("WorldBoundaryShape2D_n6hdu")
+
+[node name="BorderUp" type="StaticBody2D" parent="." unique_id=619354207]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderUp" unique_id=1974168264]
+position = Vector2(0, 160)
+shape = SubResource("WorldBoundaryShape2D_km5ld")
+
+[node name="BorderDown" type="StaticBody2D" parent="." unique_id=2054242410]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderDown" unique_id=183165704]
+position = Vector2(0, 34)
+shape = SubResource("WorldBoundaryShape2D_f2txt")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=448601515]
+z_index = -10
+scale = Vector2(4, 3)
+texture = ExtResource("7_n6hdu")
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=913499059]
+z_index = -20
+offset_left = -1096.0
+offset_top = -1021.3334
+offset_right = 962.0
+offset_bottom = 1099.6088
+color = Color(0, 0.0627451, 0, 1)
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=680534555]
+stream = ExtResource("12_aicyk")
+volume_db = -20.0
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="EnemySpawnInterval" to="." method="_on_timer_timeout"]

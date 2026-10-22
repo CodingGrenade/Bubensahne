@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://c4fcqntuhkfg6"]
+
+[ext_resource type="Script" uid="uid://ce387bflcrs5i" path="res://weapon_data.gd" id="1_4adss"]
+[ext_resource type="PackedScene" uid="uid://b5atwp2ndkwjs" path="res://kugel.tscn" id="1_4cern"]
+
+[resource]
+script = ExtResource("1_4adss")
+weapon_type = 3
+projectile_scene = ExtResource("1_4cern")
+damage = 10.0
+cooldown = 1.0
+color = Color(0.43605796, 8.663535e-07, 1.6845763e-07, 1)
+projectile_scale = 0.6
+price = 30.0
+scaling_factor = 0.5
+pellets = 6
+spread_degrees = 30.0
+lifetime = 0.35
+metadata/_custom_type_script = "uid://ce387bflcrs5i"

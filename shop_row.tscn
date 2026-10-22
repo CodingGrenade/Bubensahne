@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c6fkktpk5264n"]
+
+[ext_resource type="Script" uid="uid://bpovarchmm2gc" path="res://shop_row.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://bhm6wx7n8suv3" path="res://fonts/Minecraft.ttf" id="2_3dsbb"]
+
+[node name="ShopRow" type="HBoxContainer" unique_id=1243985697]
+theme_override_constants/separation = 16
+script = ExtResource("1")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=13185652]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoLabel" type="Label" parent="." unique_id=2040735257]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3dsbb")
+text = "Waffe"
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="." unique_id=892236377]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3dsbb")
+text = "Kaufen"
